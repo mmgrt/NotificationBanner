@@ -187,9 +187,14 @@ public class BaseNotificationBanner: UIView {
     
     private func createBannerConstraints(for bannerPosition: BannerPosition) {
         
+        var topInset: CGFloat = 0
+        if #available(iOS 11.0, *) {
+            topInset = appWindow.safeAreaInsets.top
+        }
+        
         spacerView.snp.remakeConstraints { (make) in
             if bannerPosition == .top {
-                make.top.equalToSuperview().offset(-10)
+                make.top.equalToSuperview().offset(topInset)
             } else {
                 make.bottom.equalToSuperview().offset(10)
             }
@@ -200,7 +205,7 @@ public class BaseNotificationBanner: UIView {
 
         contentView.snp.remakeConstraints { (make) in
             if bannerPosition == .top {
-                make.top.equalTo(spacerView.snp.bottom)
+                make.top.equalTo(spacerView.snp.bottom).offset(-topInset)
                 make.bottom.equalToSuperview()
             } else {
                 make.top.equalToSuperview()
