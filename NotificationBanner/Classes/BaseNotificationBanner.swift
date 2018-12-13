@@ -240,7 +240,7 @@ public class BaseNotificationBanner: UIView {
 //        let finalHeight = NotificationBannerUtilities.isNotchFeaturedIPhone()
 //            && UIApplication.shared.statusBarOrientation.isPortrait
 //            && (parentViewController?.navigationController?.isNavigationBarHidden ?? true) ? 40.0 : 10.0
-        let finalHeight = 40.0
+        let finalHeight = self.bannerHeight
         
         if let make = make {
             make.height.equalTo(finalHeight)
