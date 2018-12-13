@@ -148,7 +148,7 @@ public class BaseNotificationBanner: UIView {
             return contentView.backgroundColor
         } set {
             contentView.backgroundColor = newValue
-            spacerView.backgroundColor = newValue
+            //spacerView.backgroundColor = newValue
         }
     }
     
@@ -161,7 +161,7 @@ public class BaseNotificationBanner: UIView {
         }
         set {
             contentView.layer.cornerRadius = newValue
-            spacerView.layer.cornerRadius = newValue
+            //spacerView.layer.cornerRadius = newValue
 
         }
     }
