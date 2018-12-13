@@ -37,6 +37,17 @@ public class NotificationBanner: BaseNotificationBanner {
     /// The view that is presented on the right side of the notification
     private var rightView: UIView?
     
+    
+    public var textColor: UIColor? {
+        get {
+            return titleLabel?.textColor
+        }
+        set {
+            titleLabel?.textColor = newValue
+            subtitleLabel?.textColor = newValue
+        }
+    }
+    
     public init(title: String,
                 subtitle: String? = nil,
                 leftView: UIView? = nil,
@@ -52,7 +63,7 @@ public class NotificationBanner: BaseNotificationBanner {
             leftView.snp.makeConstraints({ (make) in
                 make.top.equalToSuperview().offset(10)
                 make.left.equalToSuperview().offset(10)
-                make.bottom.equalToSuperview().offset(-10)
+                //make.bottom.equalToSuperview().offset(-10)
                 make.width.equalTo(leftView.snp.height)
             })
         }
@@ -63,7 +74,7 @@ public class NotificationBanner: BaseNotificationBanner {
             rightView.snp.makeConstraints({ (make) in
                 make.top.equalToSuperview().offset(10)
                 make.right.equalToSuperview().offset(-10)
-                make.bottom.equalToSuperview().offset(-10)
+               // make.bottom.equalToSuperview().offset(-10)
                 make.width.equalTo(rightView.snp.height)
             })
         }

@@ -151,6 +151,17 @@ public class BaseNotificationBanner: UIView {
         }
     }
     
+    public var cornerRadius: CGFloat {
+        get {
+            return contentView.layer.cornerRadius
+        }
+        set {
+            contentView.layer.cornerRadius = newValue
+            spacerView.layer.cornerRadius = newValue
+
+        }
+    }
+    
     init(style: BannerStyle, colors: BannerColorsProtocol? = nil) {
         super.init(frame: .zero)
         
@@ -223,9 +234,11 @@ public class BaseNotificationBanner: UIView {
      */
     
     private func updateSpacerViewHeight(make: ConstraintMaker? = nil) {
-        let finalHeight = NotificationBannerUtilities.isNotchFeaturedIPhone()
-            && UIApplication.shared.statusBarOrientation.isPortrait
-            && (parentViewController?.navigationController?.isNavigationBarHidden ?? true) ? 40.0 : 10.0
+//        let finalHeight = NotificationBannerUtilities.isNotchFeaturedIPhone()
+//            && UIApplication.shared.statusBarOrientation.isPortrait
+//            && (parentViewController?.navigationController?.isNavigationBarHidden ?? true) ? 40.0 : 10.0
+        let finalHeight = 40.0
+        
         if let make = make {
             make.height.equalTo(finalHeight)
         } else {
