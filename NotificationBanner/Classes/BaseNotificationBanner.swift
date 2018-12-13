@@ -62,7 +62,8 @@ public class BaseNotificationBanner: UIView {
                 return shouldAdjustForNotchFeaturedIphone() ? 88.0 : 64.0
             }
         } set {
-            customBannerHeight = newValue
+            let offset = NotificationBannerUtilities.isNotchFeaturedIPhone() ? 20 : 0
+            customBannerHeight = newValue + CGFloat(offset)
         }
     }
     
@@ -240,7 +241,7 @@ public class BaseNotificationBanner: UIView {
         //        let finalHeight = NotificationBannerUtilities.isNotchFeaturedIPhone()
         //            && UIApplication.shared.statusBarOrientation.isPortrait
         //            && (parentViewController?.navigationController?.isNavigationBarHidden ?? true) ? 40.0 : 10.0
-        let finalHeight = self.bannerHeight / 2
+        let finalHeight = NotificationBannerUtilities.isNotchFeaturedIPhone() ? 40 : 0
         
         if let make = make {
             make.height.equalTo(finalHeight)
