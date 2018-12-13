@@ -151,7 +151,9 @@ public class BaseNotificationBanner: UIView {
         }
     }
     
-    // The corner radius of the full notification view.
+    public var textColor: UIColor?
+    
+    /// The corner radius of the full notification view.
     public var cornerRadius: CGFloat {
         get {
             return contentView.layer.cornerRadius

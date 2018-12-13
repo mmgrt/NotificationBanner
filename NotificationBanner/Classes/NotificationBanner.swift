@@ -37,8 +37,8 @@ public class NotificationBanner: BaseNotificationBanner {
     /// The view that is presented on the right side of the notification
     private var rightView: UIView?
 
-    // The Title and Subtitle Colors if they are the same, nil if not.
-    public var textColor: UIColor? {
+    /// The Title and Subtitle Colors if they are the same, nil if not.
+    public override var textColor: UIColor? {
         get {
             return titleLabel?.textColor == subtitleLabel?.textColor ? subtitleLabel?.textColor : nil
         }
